@@ -29,9 +29,11 @@ const MyProvider = (props) => {
 		console.log("returned from await");
 	}
 
-	React.useEffect(() => {
-		asyncCall();
-	});
+	return (
+		<div>
+			<button onClick={asyncCall}>Button</button>
+		</div>
+	)
 }
 
 export default MyProvider;
