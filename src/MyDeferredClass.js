@@ -18,7 +18,27 @@ class MyDeferredClass {
 		console.log("Deferred timeout");
 		this.timer = null;
 		if (this.cb) {
-			this.cb();
+			const cb = this.cb;
+			this.cb = null;
+			cb();
+		}
+	}
+
+	StartAnotherDeferred() {
+		console.log("Start Another Deferred");
+
+		this.timer = setTimeout(() => {
+			this.Deferred();
+		}, this.timeout);
+	}
+
+	AnotherDeferred() {
+		console.log("Another deferred timeout")
+		this.timer = null;
+		if (this.cb) {
+			const cb = this.cb;
+			this.cb = null;
+			cb();
 		}
 	}
 }
