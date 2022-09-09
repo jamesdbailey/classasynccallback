@@ -65,11 +65,6 @@ const MyProvider = (props) => {
 		console.log(`returned from another await with ${res}`);
 	}
 
-	React.useEffect(() => {
-		promiseOutcome = false;
-		asyncCall();
-	});
-
 	function click(val) {
 		promiseOutcome = true;
 		asyncCall().then(anotherAsyncCall);

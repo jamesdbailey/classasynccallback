@@ -1,9 +1,8 @@
 class MyDeferredClass {
 	constructor() {
-		//super();
-		this.timeout = 500;
 		this.cb = null;
 		this.timer = null;
+		this.anotherTimer = null;
 	}
 
 	StartDeferred() {
@@ -11,7 +10,7 @@ class MyDeferredClass {
 
 		this.timer = setTimeout(() => {
 			this.Deferred();
-		}, this.timeout);
+		}, 3000);
 	}
 
 	Deferred() {
@@ -27,14 +26,14 @@ class MyDeferredClass {
 	StartAnotherDeferred() {
 		console.log("Start Another Deferred");
 
-		this.timer = setTimeout(() => {
+		this.anotherTimer = setTimeout(() => {
 			this.Deferred();
-		}, this.timeout);
+		}, 1000);
 	}
 
 	AnotherDeferred() {
 		console.log("Another deferred timeout")
-		this.timer = null;
+		this.anotherTimer = null;
 		if (this.cb) {
 			const cb = this.cb;
 			this.cb = null;
